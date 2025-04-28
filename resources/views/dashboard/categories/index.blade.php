@@ -51,7 +51,9 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Slag</th>
+                    <th>Slug</th>
+                    <th>Description</th>
+
                 </tr>
                 </thead>
                 <tbody >
@@ -59,7 +61,8 @@
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
-                        <td>{{$category->slag}}</td>
+                        <td>{{$category->slug}}</td>
+                        <td>{{$category->description}}</td>
                         <td> <a href="{{route('categories.edit',$category->id)}}">Edit</a>
                             <form action="{{route('categories.destroy',$category->id)}}" method="post" >
                                 @method('DELETE')

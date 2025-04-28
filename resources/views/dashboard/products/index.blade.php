@@ -53,7 +53,8 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Brand_Name</th>
-                    <th>Slag</th>
+                    <th>Slug</th>
+                    <th>Category_Name</th>
                 </tr>
                 </thead>
                 <tbody >
@@ -63,7 +64,8 @@
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->brand->name}}</td>
-                        <td>{{$product->slag}}</td>
+                        <td>{{$product->slug}}</td>
+                        <td>{{$product->category->name}}</td>
                         <td> <a href="{{route('products.edit',$product->id)}}">Edit</a>
                             <form action="{{route('products.destroy',$product->id)}}" method="post" >
                                 @method('DELETE')

@@ -57,9 +57,16 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="slag" class="form-label">Slag</label>
-                    <input type="text" class="form-control" name="slag">
-                    @error('slag')
+                    <label for="slag" class="form-label">Slug</label>
+                    <input type="text" class="form-control" name="slug">
+                    @error('slug')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" name="description">
+                    @error('description')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>

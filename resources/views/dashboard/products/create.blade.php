@@ -75,9 +75,20 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="slag" class="form-label">Slag</label>
-                    <input type="text" class="form-control" name="slag">
-                    @error('slag')
+                    <label for="slug" class="form-label">Slug</label>
+                    <input type="text" class="form-control" name="slug">
+                    @error('slug')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Category</label>
+                    <select class="form-select" name="category_id"  required>
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}} </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>

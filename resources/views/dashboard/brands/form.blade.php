@@ -66,6 +66,11 @@
                     <input type="text" class="form-control" id="name" name="name"
                            value="{{ old('name', isset($brand) ? $brand->name : '') }}" >
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug"
+                           value="{{ old('slug', isset($brand) ? $brand->slug : '') }}" >
+                </div>
                 <button type="submit" class="btn btn-primary">
                     {{ isset($brand) ? 'Update' : 'Create' }}
                 </button>

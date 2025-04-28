@@ -51,6 +51,7 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
+                    <th>Slug</th>
                 </tr>
                 </thead>
                 <tbody >
@@ -58,6 +59,7 @@
                     <tr>
                         <td>{{$brand->id}}</td>
                         <td>{{$brand->name}}</td>
+                        <td>{{$brand->slug}}</td>
                         <td> <a href="{{route('brands.edit',$brand->id)}}">Edit</a>
                             <form action="{{route('brands.destroy',$brand->id)}}" method="post" >
                                 @method('DELETE')

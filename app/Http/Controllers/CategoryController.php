@@ -31,11 +31,12 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name'=>'required|max:255',
-            'slag'=>'required'
+            'slug'=>'required'
         ]);
         Category::create([
             'name'=>$request->name,
-            'slag'=>$request->slag
+            'slug'=>$request->slug,
+            'description'=>$request->description
         ]);
         return redirect()->route('categories.index');
     }
@@ -65,7 +66,8 @@ class CategoryController extends Controller
         $category=Category::findorFail($id);
         $category->update([
             'name'=>$request->name,
-            'slag'=>$request->slag
+            'slug'=>$request->slug,
+            'description'=>$request->description
         ]);
         return redirect()->route('categories.index');
     }

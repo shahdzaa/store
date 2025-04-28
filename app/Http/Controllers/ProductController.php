@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class ProductController extends Controller
     public function create()
     {
         $brands=Brand::all();
-        return view('dashboard.products.create',compact('brands'));
+        $categories=Category::all();
+        return view('dashboard.products.create',compact('brands','categories'));
     }
 
     /**
@@ -35,13 +37,15 @@ class ProductController extends Controller
             'name'=>'required|max:255',
             'price'=>'required',
             'brand_id'=>'required',
-            'slag'=>'required'
+            'slug'=>'required',
+            'category_id'=>'required'
         ]);
         Product::create([
             'name'=>$request->name,
             'price'=>$request->price,
             'brand_id'=>$request->brand_id,
-            'slag'=>$request->slag
+            'slug'=>$request->slug,
+            'category_id'=>$request->category_id
         ]);
         return redirect()->route('products.index');
     }
@@ -60,8 +64,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $brands=Brand::all();
+        $categories=Category::all();
         $product=Product::findorFail($id);
-        return view('dashboard.products.edit',compact('brands','product'));
+        return view('dashboard.products.edit',compact('brands','product','categories'));
 
     }
 
@@ -74,14 +79,16 @@ class ProductController extends Controller
             'name'=>'required|max:255',
             'price'=>'required',
             'brand_id'=>'required',
-            'slag'=>'required'
+            'slug'=>'required',
+            'category_id'=>'required'
         ]);
         $product=Product::findorFail($id);
         $product->update([
             'name'=>$request->name,
             'price'=>$request->price,
             'brand_id'=>$request->brand_id,
-            'slag'=>$request->slag
+            'slug'=>$request->slug,
+            'category_id'=>$request->category_id
         ]);
         return redirect()->route('products.index');
     }
